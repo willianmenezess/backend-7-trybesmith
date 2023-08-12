@@ -28,5 +28,15 @@ describe('ProductsController', function () {
     expect(res.status).to.be.calledWith(201);
     expect(res.json).to.be.calledWith(productMocks.validProductFromDB);
   });
+  // it('É possivel listar todos os produtos com sucesso', async function() {
+  //   // Arrange
+  //   sinon.stub(productService, 'getAll').resolves({ status: 'SUCCESSFUL', data: [productMocks.validProductFromDB] });
+
+  //   // Act
+  //   await ProductsController.getAll(req, res);
+  //   // Assert
+  //   expect(res.status).to.be.calledWith(200);
+  //   expect(res.json).to.be.calledWith([productMocks.validProductFromDB]);
+  // });
 
 });
