@@ -21,15 +21,13 @@ describe('ProductsService', function () {
   })
 
   // it('É possivel listar todos os produtos com sucesso', async function() {
-    // Arrange
+   
+  //   const mockFindAllReturn = ProductModel.build([productMocks.validProductFromDB]);
+  //   sinon.stub(ProductModel, 'findAll').resolves([mockFindAllReturn]);
 
-    // Act
-    // const mockFindAllReturn = ProductModel.build(productMocks.allProductsFromDB);
-    // sinon.stub(ProductModel, 'findAll').resolves(mockFindAllReturn);
-    // Assert
-    // const serviceResponse = await ProductsService.getAll();
-    // expect(serviceResponse.status).to.be.equal('SUCCESSFUL');
-    // expect(serviceResponse.data).to.be.deep.equal([productMocks.validProductFromDB]);
+  //   const serviceResponse = await ProductsService.getAll();
+  //   expect(serviceResponse.status).to.be.equal('SUCCESSFUL');
+  //   expect(serviceResponse.data).to.be.deep.equal([productMocks.validProductFromDB]);
   // });
 
 });
