@@ -1,7 +1,5 @@
 import OrderModel from '../database/models/order.model';
 import ProductModel from '../database/models/product.model';
-// import { ServiceResponse } from '../types/ServiceResponse';
-// import { Order } from '../types/Order';
 
 async function allOrdersWithProducts(): Promise<unknown> {
   const allOrders = await OrderModel.findAll({ include: [

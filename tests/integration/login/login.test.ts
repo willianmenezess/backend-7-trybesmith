@@ -9,7 +9,7 @@ chai.use(chaiHttp);
 
 describe('POST /login', function () { 
   beforeEach(function () { sinon.restore(); });
-  it('Ao fazer Login com um e-mail e uma senha válida, devolve um token!', async function () {
+  it('Ao fazer Login com um username e uma senha válida, devolve um token!', async function () {
     // Arrange
     const mockFindOne = UserModel.build(loginMocks.userWithHash);
     sinon.stub(UserModel, 'findOne').resolves(mockFindOne);
@@ -19,7 +19,7 @@ describe('POST /login', function () {
     expect(httpResponse).to.have.status(200); 
     expect(httpResponse.body).to.have.key('token');
   });
-  it('Ao fazer Login com um e-mail e uma senha inválida, devolve um erro!', async function () {
+  it('Ao fazer Login com um username e uma senha inválida, devolve um erro!', async function () {
     // Arrange
     const mockFindOne = UserModel.build(loginMocks.userWithHash);
     sinon.stub(UserModel, 'findOne').resolves(mockFindOne);
@@ -29,5 +29,15 @@ describe('POST /login', function () {
     expect(httpResponse).to.have.status(401); 
     expect(httpResponse.body).to.have.key('message');
     expect(httpResponse.body.message).to.be.equal('Username or password invalid');
+  });
+  it('Ao fazer Login sem passar o username na requisição, devolve um erro!', async function () {
+    // Arrange
+ 
+    // Act
+    const httpResponse = await chai.request(app).post('/login').send({ ...loginMocks.validLoginBody, username: '' })
+    // Assert
+    expect(httpResponse).to.have.status(400); 
+    expect(httpResponse.body).to.have.key('message');
+    expect(httpResponse.body.message).to.be.equal('"username" and "password" are required');
   });
 });

@@ -12,12 +12,6 @@ async function getAll(): Promise<ServiceResponse<ProductSequelizeModel[]>> {
 }
 
 async function create(product: ProductInputtableTypes): Promise<ServiceResponse<Product>> {
-  // let responseService: ServiceResponse<Product>;
-  // const error = validateInputValues.validateParams(product);
-  // if (error) {
-  //   responseService = { status: 'INVALID_DATA', data: { message: error } };
-  //   return responseService;
-  // }
   const newProduct = await ProductModel.create(product);
   const responseService: 
   ServiceResponse<Product> = { status: 'SUCCESSFUL', data: newProduct.dataValues };
