@@ -20,5 +20,5 @@ describe('POST /products', function () {
     // Assert
     expect(httpResponse.status).to.equal(201);
     expect(httpResponse.body).to.be.deep.equal({ id: 5 , name: 'Produto Teste', price: '100', orderId: 4 });
-   });
+  });
 });

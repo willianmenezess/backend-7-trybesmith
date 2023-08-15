@@ -4,7 +4,6 @@ import ProductModel, {
 } from '../database/models/product.model';
 import { Product } from '../types/Product';
 import { ServiceResponse } from '../types/ServiceResponse';
-// import validateInputValues from './validateInputValues';
 
 async function getAll(): Promise<ServiceResponse<ProductSequelizeModel[]>> {
   const allProducts = await ProductModel.findAll();
