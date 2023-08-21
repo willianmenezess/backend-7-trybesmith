@@ -23,7 +23,7 @@ describe('POST /orders', function () {
     sinon.stub(OrderModel, 'create').resolves(mockCreateResult);
     sinon.stub(ProductModel, 'update').resolves([1]);
     // Act
-    const httpResponse = await chai.request(app).post('/orders').send({ userId: 1, productIds: [1, 2, 3] }).set('Authorization', '456hhuih5664f7798996');;
+    const httpResponse = await chai.request(app).post('/orders').send({ userId: 1, productIds: [1, 2, 3] }).set('Authorization', '456hhuih5664f7798996');
 
     // Assert
     expect(httpResponse.status).to.equal(201);
